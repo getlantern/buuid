@@ -15,6 +15,7 @@ const (
 
 var (
 	endianness = binary.LittleEndian
+	zero       = ID{}
 )
 
 // ID is a type 4 UUID.
@@ -36,7 +37,7 @@ func Random() ID {
 // Read reads the ID from a 16-byte or larger buffer
 func Read(b []byte) (ID, error) {
 	if len(b) < EncodedLength {
-		return ID{}, fmt.Errorf("Insufficient data to read id, data may be truncated")
+		return zero, fmt.Errorf("Insufficient data to read id, data may be truncated")
 	}
 	return ID{
 		endianness.Uint64(b[0:8]),
