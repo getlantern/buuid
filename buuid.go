@@ -6,9 +6,8 @@ import (
 	"encoding/binary"
 	"fmt"
 
-	"code.google.com/p/go-uuid/uuid"
-
 	"github.com/getlantern/golog"
+	"github.com/getlantern/uuid"
 )
 
 const (
